@@ -105,6 +105,7 @@ export default class BasicLayout extends React.PureComponent {
       global
     } = props || this.props;
     const menu = this.getMeunMatchKeys(global.flatMenu, pathname)[0];
+    console.log(menu)
     return menu;
   }
 

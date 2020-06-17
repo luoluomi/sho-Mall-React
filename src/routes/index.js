@@ -33,6 +33,7 @@ import Button from './UI/Button';
 import Modal from './UI/Modal';
 import CRUD from './Business/CRUD';
 import CRUDDetail from './Business/CRUD/routers/Detail';
+import stock from './stock'
 
 /**
  * 主路由配置
@@ -61,6 +62,7 @@ const routesConfig = app => [
     component: BasicLayout,
     indexRoute: '/dashboard',
     childRoutes: [
+      stock(app),
       Dashboard(app),
       Blank(app),
       Toolbar(app),

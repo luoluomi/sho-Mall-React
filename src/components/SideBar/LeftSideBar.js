@@ -130,6 +130,8 @@ class LeftSideBar extends PureComponent {
    * 获得菜单子节点
    */
   getNavMenuItems = menusData => {
+    
+    console.log(menusData)
     if (!menusData) {
       return [];
     }

@@ -14,12 +14,17 @@ const FormItem = Form.Item;
 }))
 export default class Login extends Component {
   handleSubmit = values => {
+    debugger
     const { dispatch } = this.props;
     dispatch({
       type: 'login/login',
       payload: values
     });
   };
+
+  login(){
+    console.log(123)
+  }
 
   render() {
     const { loading } = this.props;
@@ -28,11 +33,11 @@ export default class Login extends Component {
       <Layout className="full-layout login-page">
         <Content>
           <Spin tip="登录中..." spinning={!!loading}>
-            <Form onFinish={this.handleSubmit} className="login-form" initialValues={{ userName: 'admin', password: 'admin', remember: true }}>
+            <Form onFinish={this.login} className="login-form" initialValues={{ userName: 'admin', password: 'admin', remember: true }}>
               <div className="user-img">
                 <img src={logoImg} alt="logo" />
-                <b>LANIF</b>
-                <span>Admin</span>
+                <b>线上商城管理平台</b>
+                <span>1.0</span>
               </div>
               <FormItem name="userName" rules={[{ required: true, message: '请输入您的用户名，示例admin' }]}>
                 <Input
@@ -60,6 +65,7 @@ export default class Login extends Component {
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
+                // onClick="{login()}"
               >
                 登录
                 </Button>

@@ -40,6 +40,11 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
     '/api/user/register': options => toSuccess(),
     '/api/user/menu': options => toSuccess([
       {
+        name: '库存管理',
+        icon: 'decrease',
+        path: '/stock',
+      },
+      {
         name: '仪表盘',
         icon: 'DashboardOutlined',
         path: '/dashboard',
