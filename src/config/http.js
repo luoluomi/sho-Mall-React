@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toastr } from "react-redux-toastr";
 import { notice } from "@/components/Notification/normal";
-
+import { normal, antdNotice } from 'components/Notification';
 //import LoginUser from "service/login-service/LoginUser";
 
 // Promise.polyfill();
@@ -33,10 +33,11 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
   (response) => {
     if(response.data.code==200){
-      return response.data.msg;
+      return response.data;
     }else{
       // toastr.err(response.data.msg)
-      notice.error(response.data.msg);
+      // notice.error(response.data.msg);
+      normal.error(response.data.msg)
     }
     
   },
@@ -45,11 +46,10 @@ Axios.interceptors.response.use(
     if (err.status === 401 && !!err.config && !err.config.$skipAuthHandler) {
       //_loginUser.clear();
       // window.location = "/unauthorization";
-      // console.log(response)
-      notice.error(response)
+      normal.error(response)
     }
-    // toastr.error(err.data.message);
-    notice.error(err.data.message)
+    normal.error(err.data.message)
+    // notice.error(err.data.message)
     return Promise.reject(error);
   }
 );
