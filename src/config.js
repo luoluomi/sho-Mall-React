@@ -13,7 +13,7 @@ export default {
   /**
    * HTML的title模板
    */
-  htmlTitle: 'DBAdmin - {title}',
+  htmlTitle: '商城 - {title}',
   
   /**
    * 系统通知
