@@ -32,7 +32,7 @@ Axios.interceptors.request.use(
 
 Axios.interceptors.response.use(
   (response) => {
-    if(response.data.code==200){
+    if(response.data.status==200){
       return response.data;
     }else{
       // toastr.err(response.data.msg)
@@ -43,6 +43,7 @@ Axios.interceptors.response.use(
   },
   (error) => {
     const err = error.response;
+    debugger
     if (err.status === 401 && !!err.config && !err.config.$skipAuthHandler) {
       //_loginUser.clear();
       // window.location = "/unauthorization";

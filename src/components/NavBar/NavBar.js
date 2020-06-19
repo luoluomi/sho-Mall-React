@@ -88,8 +88,8 @@ class NavBar extends PureComponent {
         <div className="navbar-branding">
           <Link className="navbar-brand" to="/">
             <img src={logoImg} alt="logo" />
-            <b>LANIF</b>
-            Admin
+            <b>线上商城</b>
+            管理
           </Link>
           <span className="toggle_sidemenu_l" onClick={onCollapseLeftSide}>
             <Icon type="lines" />
@@ -156,15 +156,15 @@ class NavBar extends PureComponent {
           <li className="dropdown">
             <Popover
               placement="bottomRight"
-              title={`WELCOME ${user.userName}`}
+              title={`WELCOME ${user?.name}`}
               overlayClassName={cx('navbar-popup', { [theme]: !!theme })}
               content={<UserDropDown />}
               trigger="click"
             >
               <a className="dropdown-toggle">
                 <Badge dot>
-                  <Avatar src={require('assets/images/avatar.jpg')}>
-                    {user.userName}
+                  <Avatar src={user?.photo}>
+                    {user?.name}
                   </Avatar>
                 </Badge>
               </a>

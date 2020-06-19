@@ -200,6 +200,7 @@ export default class BasicLayout extends React.PureComponent {
       currentMenu,
       isMobile
     } = this.state;
+    console.log(this.state)
     const { routerData, location, global } = this.props;
     const { menu, flatMenu } = global;
     const { childRoutes } = routerData;
@@ -212,7 +213,7 @@ export default class BasicLayout extends React.PureComponent {
       'hided-breadcrumbs':
         theme.layout && theme.layout.indexOf('hidedBreadcrumbs') !== -1
     });
-
+    
     return (
       <Layout className={classnames}>
         <Header>

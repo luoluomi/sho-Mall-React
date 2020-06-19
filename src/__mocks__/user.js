@@ -40,41 +40,51 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
     '/api/user/register': options => toSuccess(),
     '/api/user/menu': options => toSuccess([
       {
-        name: '仪表盘',
+        name: '库存',
+        icon: 'DashboardOutlined',
+        path: '/stock',
+      },
+      {
+        name: '销售统计',
         icon: 'DashboardOutlined',
         path: '/dashboard',
       },
       {
-        name: '组件',
+        name: '人员管理',
+        icon: 'DashboardOutlined',
+        path: '/stock',
+      },
+      {
+        name: '客户端管理',
         icon: 'DesktopOutlined',
         path: '/component',
         children: [
           {
-            name: '工具条',
+            name: '首页装修',
             path: '/toolbar',
           },
           {
-            name: 'BaseComponent',
+            name: '商品页装修',
             path: '/baseComponent',
           },
           {
-            name: 'Columns',
+            name: '分类页管理',
             path: '/column',
           },
           {
-            name: '搜索条',
+            name: '导航页管理',
             path: '/searchBar',
           },
           {
-            name: '数据表格',
+            name: '详情页管理',
             path: '/datatable',
           },
           {
-            name: '表单',
+            name: '优惠券管理',
             path: '/form',
           },
           {
-            name: '穿梭树',
+            name: '积分管理',
             path: '/transferTree',
           },
           {
@@ -102,16 +112,16 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
         ],
       },
       {
-        name: 'UI元素',
+        name: '用户管理',
         icon: 'ShareAltOutlined',
         path: '/ui',
         children: [
           {
-            name: '按钮',
+            name: '用户列表',
             path: '/button',
           },
           {
-            name: '消息',
+            name: '优质用户管理',
             path: '/alerts',
           },
           {
@@ -137,16 +147,16 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
         ],
       },
       {
-        name: '页面',
+        name: '活动管理',
         icon: 'BookOutlined',
         path: '/page',
         children: [
           {
-            name: '登录页',
+            name: '活动商品管理',
             path: '/sign/login',
           },
           {
-            name: '注册页',
+            name: '商城活动管理',
             path: '/sign/register',
           },
           {
@@ -188,14 +198,18 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
         ],
       },
       {
-        name: '通用场景',
+        name: '订单系统',
         icon: 'BulbOutlined',
         path: '/business',
         children: [
           {
-            name: 'CRUD',
+            name: '批发订单系统管理',
             path: '/crud/:detail?',
-          }
+          },
+          {
+            name: '零售订单系统管理',
+            path: '/crud/:detail?',
+          },
         ],
       },
     ], 400)

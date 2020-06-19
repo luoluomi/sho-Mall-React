@@ -13,23 +13,21 @@ export default {
   },
 
   //监听登录
-  // subscriptions: {
-  //   setup({ history, dispatch }) {
-  //     return history.listen(({ pathname }) => {
-  //       if (pathname.indexOf('/sign/login') !== -1) {
-  //         $$.removeStore('user');
-  //       }
-  //     });
-  //   }
-  // },
+  subscriptions: {
+    setup({ history, dispatch }) {
+      return history.listen(({ pathname }) => {
+        if (pathname.indexOf('/sign/login') !== -1) {
+          $$.removeStore('user');
+        }
+      });
+    }
+  },
 
   effects: {
     //登录
     *login({ payload }, { call, put }) {
       try {
         const { status, message, data } = yield call(login, payload);
-        console.log(`${status},${message},${data}`);
-        debugger;
         if (status) {
           if (data.status == 200) {
             $$.setStore("user", data.msg);
@@ -49,6 +47,22 @@ export default {
       }
     },
     *logout(_, { put }) {},
+     //获取用户信息
+     *getUser({payload},{call,put}){
+
+      // console.log(payload.uid)
+      let param={uid:payload.uid}
+      // let status,mess,data
+      let result =yield call(getUser,param)
+      if(result.status==200){
+        yield put({
+          type:'getUserSuccess',
+          payload:result.msg
+        })
+      }else{
+        notice.error(res.msg)
+      }
+    }
   },
 
   reducers: {
