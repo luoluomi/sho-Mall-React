@@ -105,7 +105,6 @@ export default class BasicLayout extends React.PureComponent {
       global
     } = props || this.props;
     const menu = this.getMeunMatchKeys(global.flatMenu, pathname)[0];
-    console.log(menu)
     return menu;
   }
 
@@ -200,7 +199,6 @@ export default class BasicLayout extends React.PureComponent {
       currentMenu,
       isMobile
     } = this.state;
-    console.log(this.state)
     const { routerData, location, global } = this.props;
     const { menu, flatMenu } = global;
     const { childRoutes } = routerData;

@@ -52,7 +52,7 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
       {
         name: '人员管理',
         icon: 'DashboardOutlined',
-        path: '/stock',
+        path: '/personnel',
       },
       {
         name: '客户端管理',
@@ -205,11 +205,7 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
           {
             name: '批发订单系统管理',
             path: '/crud/:detail?',
-          },
-          {
-            name: '零售订单系统管理',
-            path: '/crud/:detail?',
-          },
+          }
         ],
       },
     ], 400)
